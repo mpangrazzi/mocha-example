@@ -1,0 +1,20 @@
+{
+  "name": "mocha-example",
+  "version": "1.0.0",
+  "description": "A very simple example on how to use mocha and should to do unit and functional tests on a basic express app",
+  "scripts": {
+    "dev": "./node_modules/.bin/supervisor bin/www",
+    "test": "NODE_ENV=test mocha"
+  },
+  "author": "Michele Pangrazzi <xmikex83@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "should": "^5.2.0",
+    "superagent": "^1.1.0",
+    "supervisor": "^0.6.0"
+  }
+}

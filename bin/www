@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var http = require('http');
+var app = require('../app');
+
+var port = process.env.PORT || 3000;
+
+var server = http.createServer(app);
+
+server.on('listening', function() {
+  console.log('Listening on port %s', port);
+});
+
+server.on('error', function(err) {
+  console.error(err);
+});
+
+server.listen(port);
