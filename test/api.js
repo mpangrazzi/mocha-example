@@ -5,6 +5,7 @@
 
 var http = require('http');
 var request = require('superagent');
+var Nightmare = require('nightmare');
 
 var app = require('../app');
 var quotes = require('../data/quotes.json').quotes;
@@ -51,6 +52,24 @@ describe('API', function() {
         done();
 
       });
+
+  });
+
+
+  it('Should view a quote', function(done) {
+
+    var safari = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25';
+
+    new Nightmare()
+      .useragent(safari)
+      .viewport(1024, 768)
+      .goto('http://localhost:3000/html/quote')
+      .evaluate(function() {
+        return document.querySelector('#quote').innerHTML;
+      }, function(html) {
+        quotes.should.containEql(html);
+      })
+      .run(done)
 
   });
 

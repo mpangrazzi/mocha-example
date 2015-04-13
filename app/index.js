@@ -23,6 +23,20 @@ app.get('/quote', function(req, res) {
 });
 
 
+// GET /html/quote
+
+
+app.get('/html/quote', function(req, res) {
+
+  var quote = random(0, quotes.length - 1);
+
+  res.send(`<p>
+    Robert Says: <span id="quote">${quotes[quote]}</span>
+    </p>`);
+
+});
+
+
 // Catch 404
 
 app.use(function(req, res, next) {
